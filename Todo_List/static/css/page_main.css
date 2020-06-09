@@ -1,0 +1,294 @@
+@font-face
+{
+    font-family: IBM Plex Sans;
+    src: url(../fonts/IBMPlexSans-Medium.ttf);
+}
+body
+{
+    background-image: url(../images/ads_main.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+/*-----------------------------------------------------*/
+.header
+{
+    display:flex;
+    position: fixed;
+    padding:0 1.5% 0 1.5%;
+    top:0;
+    left:0;
+    width:100%;
+    height:130px;
+    font-size: 14px;
+    background: #0241d0;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+.header_1
+{
+    position: absolute;
+    bottom: 80px;
+    height: 50px;
+    width: 100%;
+}
+.header_2
+{
+    position: absolute;
+    top: 50px;
+    height: 80px;
+    width: 100%;
+    margin-left: -4%;
+    background: #FFFFFF;
+}
+.logout
+{
+    height: 50px;
+    width: 140px;
+    position: absolute;
+    left: 79.1%;
+    right: 13.47%;
+    top: 0%;
+    bottom: 65.71%;
+    background: rgb(17, 65, 170);
+    color: #FFFFFF;
+
+}
+.logout a
+{
+    text-decoration: none;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+}
+.logout:hover
+{
+    background: #FFFFFF;
+    color: #0043DC;
+}
+.user_name
+{
+    position: relative;
+    top: -30%;
+    left: 2%;
+    height: 50px;
+    width: 300px;
+}
+.user_name p
+{
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    color:#FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.download_all
+{
+    position: absolute;
+    left: 55%;
+    right: 16.6%;
+    color: #FFFFFF;
+    height: 80px;
+    width: 300px;
+    top: 0%;
+    bottom: 65.71%;
+    background: #052ca0;
+}
+.download_all a
+{
+    text-decoration: none;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+}
+.download_all:hover
+{
+    background: #FFFFFF;
+    color: #0043DC;
+}
+.logo
+{
+    position: absolute;
+    left: 6.5%;
+    top: 10%;
+    bottom: 29.63%;
+    width: 70px;
+    height: 70px;
+    background-image: url(../images/homework.svg);
+    background-size: 65px 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*-----------------------------------------------------*/
+.add_sheet_form
+{
+    position: relative;
+    margin-top: 150px;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 150px;
+}
+
+.add_sheet_form input
+{
+    margin-top: 100px;
+    margin-bottom: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 90%;
+    height: 80px;
+    border-radius: 10px;
+    padding: 12px 20px;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(85, 85, 85, 0.64);
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 18px;
+}
+.add_sheet_form input:focus
+{
+    border: 3px solid rgba(0, 52, 175, 0.81);
+    background-color: lightblue;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+.add_sheet_form input:valid
+{
+    border: 3px solid rgba(0, 52, 175, 0.81);
+    background-color: lightblue;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+.add_sheet_form hr
+{
+    color: #052ca0;
+    background: #052ca0;
+    height: 5px;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+.add_sheet_form h2
+{
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 46px;
+    color: #052ca0;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.add_sheet_form button
+{
+    width: 40%;
+    height: 80px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 10px;
+    background: #0043DC;
+    color: #FFFFFF;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+    appearance: none;
+    border: 0;
+    padding: 8px 16px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 18px;
+}
+.add_sheet_form button:hover
+{
+    background: #FFFFFF;
+    color: #0043DC;
+}
+
+.empty_title
+{
+    margin-left: 42.5%;
+    margin-top: 180px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 46px;
+    color: #4A4A4A;
+}
+.sheet_list
+{
+    display:flex;
+    margin-top: 10%;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 5%;
+}
+.sheet_list div
+{
+    width: 90%;
+    height: 100px;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    background: #052ca0;
+    color: #FFFFFF;
+}
+.sheet_list div a
+{
+    text-decoration: none;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+}
+.sheet_list div:hover
+{
+    transform: scale(1.05);
+    background: #FFFFFF;
+    color: #052ca0;
+}
+.sheet_list p
+{
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 10px;
+}

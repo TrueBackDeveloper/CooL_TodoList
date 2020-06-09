@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block titel%}To Do List{% endblock %}
+
+{% block link_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/page_main.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+{% if user.is_staff  %}
+
+    {% if sheet_list %}
+        <div class="sheet_list">
+                {% for sheet in sheet_list %}
+                <div>
+                    <a href="{% url 'Todo_List:detail' sheet.id %}">{{ sheet.sheet_title }}</a>
+                    <p>Owner: {{ sheet.user_sheet.first_name }} </p><br>
+                </div>
+
+                {% endfor %}
+        </div>
+            <div class="add_sheet_form">
+                <hr>
+                <h2>Add Sheet:</h2>
+                <form action="{% url 'Todo_List:create_sheet'  %}" method="POST">
+                {% csrf_token %}
+                <input name="name_" type="text" required placeholder="Sheet Title..." ><br>
+                    <input name="hex_color" type="text" required placeholder="Set hex color, like this - #FFFFFF" ><br>
+                <button type="submit">Create Sheet</button>
+                </form>
+            </div>
+        {% else %}
+            <h2 class="empty_title">Empty:(</h2>
+            <div class="add_sheet_form">
+                <hr>
+                <h2>Add Sheet:</h2>
+                <form action="{% url 'Todo_List:create_sheet'  %}" method="POST">
+                {% csrf_token %}
+                <input name="name_" type="text" required placeholder="Sheet Title..." ><br>
+                    <input name="hex_color" type="text" required placeholder="Set hex color, like this - #FFFFFF" ><br>
+                <button type="submit">Create Sheet</button>
+                </form>
+            </div>
+        {% endif %}
+{% else %}
+        {% if sheet_list %}
+            <div class="sheet_list">
+                {% for a in sheet_list %}
+                    <div>
+                        <a href="{% url 'Todo_List:detail' a.id %}">{{ a.sheet_title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="add_sheet_form">
+                <hr>
+                <h2>Add Sheet:</h2>
+                <form action="{% url 'Todo_List:create_sheet'  %}" method="POST">
+                {% csrf_token %}
+                <input name="name_" type="text" required placeholder="Sheet Title..." ><br>
+                    <input name="hex_color" type="text" required placeholder="Set hex color, like this - #FFFFFF" ><br>
+                <button type="submit">Create Sheet</button>
+                </form>
+            </div>
+        {% else %}
+            <h2 class="empty_title">Empty:(</h2>
+            <div class="add_sheet_form">
+                <hr>
+                <h2>Add Sheet:</h2>
+                <form action="{% url 'Todo_List:create_sheet'  %}" method="POST">
+                {% csrf_token %}
+                <input name="name_" type="text" required placeholder="Sheet Title..." ><br>
+                    <input name="hex_color" type="text" required placeholder="Set hex color, like this - #FFFFFF" ><br>
+                <button type="submit">Create Sheet</button>
+                </form>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block titel%}To Do List{% endblock %}
+
+{% block link_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="main_block">
+        <div class="form_block">
+            <p class="login_title">Authentication</p>
+            <hr>
+            <form method="post">
+            {% csrf_token %}
+
+               <span>{{ form.username.help_text }}</span><br>
+                {{ form.username }}<br>
+                {% for error in form.username.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+
+
+
+                <span>{{ form.password.label_tag }}</span><br>
+                {{ form.password }}<br>
+
+                {% for error in form.password1.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+
+            <button type="submit">Login</button>
+            </form>
+                <div class="signup_bottom">
+                    <a  href="{% url 'Todo_List:signup' %}">Sign Up</a>
+                </div>
+        </div>
+    </div>
+{% endblock %}

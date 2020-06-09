@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block titel%}To Do List{% endblock %}
+{% block link_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+{% block content %}
+    <div class = "note_form">
+
+        <h2>Edit Note:</h2>
+            <form action="{% url 'Todo_List:create_note' sheet.id %}" method="POST">
+
+                {% csrf_token %}
+                <input class="title_field" name="title" type="text"  value="{{ note.note_title }}" ><br>
+
+                <input class="task_field" name="task" type="text"  value="{{ note.task_text }}" ><br>
+
+                <span>Dead Line:</span>
+                <input class="date_field" name="dl" type="date" ><br>
+
+                <button type="submit">Save</button>
+
+            </form>
+    </div>
+{% endblock %}

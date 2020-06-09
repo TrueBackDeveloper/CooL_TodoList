@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block titel%} {{ sheet.sheet_title }} {% endblock %}
+
+{% block link_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+{% block body_color %}
+    <body style="background: {{ sheet.color }}">
+    {% if user.is_authenticated %}
+
+            {% block header %}
+                <header class="header">
+
+                    <div class="header_1">
+
+                        <div class="user_name">
+                            <p>User: {{ user.get_full_name }}</p>
+                        </div>
+
+                        <div class="logout">
+                            <a href="{% url 'Todo_List:logout'%}">Log Out</a>
+                        </div>
+
+                        <div class = "download_all">
+                            <a href="{% url 'Todo_List:download_all'  %}" >Download All Sheet</a>
+                        </div>
+                    </div>
+                    <div class="header_2">
+                        <a href="{% url 'Todo_List:index'  %}"> <div class="logo"></div></a>
+                        <div class ="sheet_delete"><a href="{% url 'Todo_List:sheet_delete' sheet.id %}">Delete this Shit</a></div>
+                        <div class="sheet_edit"><a href="{% url 'Todo_List:sheet_edit' sheet.id %}">Edit this Shit</a></div>
+                        <div class="paste_note"><a href="{% url 'Todo_List:paste_note' sheet.id %}">Paste Note</a></div>
+                        <div class="download"><a href="{% url 'Todo_List:download_json' sheet.id %}">Download Sheet</a></div>
+
+                    </div>
+                </header>
+            {% endblock %}
+        {% endif %}
+    {% block content %}
+        <h2> {{ sheet.sheet_title }} </h2>
+        <em> {{ sheet.pub_date }}</em>
+
+            {% if all_note_list %}
+                <div class="note_list">
+
+                    {% for note in all_note_list %}
+                        <div>
+                            <h2>{{ note.note_title }}</h2>
+                            <p>{{ note.task_text }}</p>
+                            <p><span>Dead Line:</span> {{ note.dead_line }}</p>
+                            <p><span>Real Date:</span>{{ note.real_date}}</p>
+                            <p><span>Status:</span>{{ note.status }}</p>
+                            <hr>
+                               <div class="change"><a href="{% url 'Todo_List:change_status' sheet.id note.id %}">Change Status</a></div>
+
+                            <div class="delete_note"><a href="{% url 'Todo_List:note_delete' sheet.id note.id %}">Delete this Shit</a></div>
+                            <div><a href="{% url 'Todo_List:note_edit' sheet.id note.id %}">Edit this Shit</a><br></div>
+                            <div class="copy"><a href="{% url 'Todo_List:copy_note' sheet.id note.id %}">Copy</a></div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            {% else %}
+                Заданий нет! Чилим мужики))))
+            {% endif %}
+
+        <div class = "note_form">
+            <hr>
+            <h2>Add Note:</h2>
+                <form action="{% url 'Todo_List:create_note' sheet.id %}" method="POST">
+
+                    {% csrf_token %}
+                    <input class="title_field" name="title" type="text" required placeholder="Title..." ><br>
+
+                    <textarea class="task_field" name="task" type="text" required placeholder="Task..." ></textarea><br>
+
+                    <span>Dead Line:</span>
+                    <input class="date_field" name="dl" type="date" required  ><br>
+
+                    <button type="submit">Create Note</button>
+
+                </form>
+
+        </div>
+
+
+
+    {% endblock %}
+</body>
+{% endblock %}

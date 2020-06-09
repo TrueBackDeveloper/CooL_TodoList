@@ -1,0 +1,126 @@
+@font-face
+{
+    font-family: IBM Plex Sans;
+    src: url(../fonts/IBMPlexSans-Medium.ttf);
+}
+
+body
+{
+    background-image: url(../images/main.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main_block
+{
+    position: relative;
+    margin-top:25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.6);
+    width: 60%;
+    height: 500px;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+
+.login
+{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 80px;
+    border-radius: 35.5px;
+    background: #FFFFFF;
+    color: #4A4A4A;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+.login:hover
+{
+     background: #0043DC;
+     color:white;
+}
+.login a
+{
+    text-decoration: none;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+}
+
+.signup
+{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 60px;
+    color: #FFFFFF;
+    background: #0043DC;
+    border-radius: 35.5px;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+}
+.signup a
+{
+    text-decoration: none;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    color: inherit;
+}
+
+.signup:hover
+{
+     background: #FFFFFF;
+     color: #0043DC;
+}
+.info_blocks
+{
+    display:flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin-left: 5%;
+}
+.info_blocks div
+{
+    width: 262px;
+    height: 100px;
+    background: #FFFFFF;
+    color: #0043DC;
+    box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-right: 30px;
+    margin-top: 16px;
+    position: relative;
+}
+
+.info_blocks div:hover
+{
+    background: #0043DC;
+    color:white;
+}
+

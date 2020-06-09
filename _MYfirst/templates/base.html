@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titel%} Titel blyt {% endblock %}</title>
+{% block link_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+</head>
+{% block body_color %}
+    <body>
+        {% if user.is_authenticated %}
+            {% block header %}
+                <header class="header">
+
+                    <div class="header_1">
+
+                        <div class="user_name">
+                            <p>User: {{ user.get_full_name }}</p>
+                        </div>
+                        <div class="logout">
+                            <a href="{% url 'Todo_List:logout'%}">Log Out</a>
+                        </div>
+                        <div class = "download_all">
+                            <a href="{% url 'Todo_List:download_all'  %}" >Download All Sheet</a>
+                        </div>
+                    </div>
+                    <div class="header_2">
+                       <a href="{% url 'Todo_List:index'  %}"> <div class="logo"></div></a>
+                    </div>
+                </header>
+            {% endblock %}
+        {% endif %}
+        {% block content%} Content blyt {% endblock %}
+    </body>
+{% endblock %}
+</html>
